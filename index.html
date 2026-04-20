@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BankerFlow — Banker's Algorithm Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <h1>BankerFlow</h1>
+      <p>Interactive, colorful, and minimal Banker's Algorithm simulator.</p>
+    </header>
+
+    <main class="layout">
+      <section class="card setup-card">
+        <div class="card-header">
+          <h2>Setup</h2>
+          <p>Define processes/resources and generate a clean matrix workspace.</p>
+        </div>
+
+        <div class="setup-grid">
+          <label>
+            Processes (1–10)
+            <input id="processCount" type="number" min="1" max="10" value="5" />
+          </label>
+          <label>
+            Resource types (1–6)
+            <input id="resourceCount" type="number" min="1" max="6" value="3" />
+          </label>
+          <button id="buildBtn" class="btn primary">Build Matrices</button>
+        </div>
+
+        <div id="tablesArea" class="tables-area"></div>
+      </section>
+
+      <section class="card run-card">
+        <div class="card-header">
+          <h2>Run Algorithm</h2>
+          <p>Check if the current state is safe and inspect the safe sequence.</p>
+        </div>
+
+        <div class="run-actions">
+          <button id="sampleBtn" class="btn ghost">Load Classic Sample</button>
+          <button id="runBtn" class="btn primary">Run Safety Check</button>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-box">
+            <h3>Status</h3>
+            <p id="statusBadge" class="badge neutral">Waiting for input…</p>
+          </article>
+          <article class="result-box">
+            <h3>Safe Sequence</h3>
+            <p id="sequenceText">—</p>
+          </article>
+          <article class="result-box wide">
+            <h3>Step Trace</h3>
+            <ol id="traceList" class="trace-list"></ol>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built for Operating Systems visualization · Banker's Algorithm</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
